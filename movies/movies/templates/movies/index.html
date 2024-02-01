@@ -1,14 +1,15 @@
-<html>
-  <body>
-    <h1>My Fav Movies!</h1>
-    {% if movies %}
+{% extends "movies/_base.html" %}
+{% block content %}
+<h1>My Fav Movies!</h1>
+{% if movies %}
     <ul>
       {% for movie in movies %}
         <li>{{ movie|title }}</li>
-      {% endfor %}
-    </ul>
-    {% else %}
+        {% endfor %}
+      </ul>
+      {% else %}
       <i>No fav movie</i>
-    {% endif %}
-  </body>
-</html>
+      {% endif %}
+      {% load static %}
+      <img style="width: 100px" src="{% static "movies/abc.svg" %}" alt="help desk svg"/>
+{% endblock %}
