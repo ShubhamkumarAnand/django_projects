@@ -1,0 +1,19 @@
+{% load humanize %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% for posting in job_postings %}
+    <ul>
+      <li>
+        {{ posting.title|title }} | $ {{ posting.salary|intcomma }} | {{ posting.company }}
+        <a href="{% url "detail" posting.id %}">Details</a>
+      </li>
+    </ul>
+  {% endfor %}
+</body>
+</html>
