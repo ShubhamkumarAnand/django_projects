@@ -1,0 +1,10 @@
+<h1>
+  My Links
+</h1>
+{% for link in links %}
+<ul>
+  <li>
+    {{ link.name }} | {{link.clicks}}
+  </li>
+</ul>
+{% endfor %}
