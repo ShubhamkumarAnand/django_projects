@@ -1,4 +1,20 @@
 <h1>My Trips</h1>
+
+{% if user.is_authenticated %}
+  <p>Logged in as {{ user.username }}</p>
+  <p>
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+    <button type="submit">Log Out</button>
+  </form>
+  </p>
+  {% else %}
+  <p> Please
+    <a href="{% url "login" %}">Login</a>
+    here
+  </p>
+{% endif %}
+
 <ul>
   {% for trip in trips %}
   <li>
